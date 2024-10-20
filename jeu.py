@@ -28,7 +28,7 @@ def mini_jeu():
     # Affiche le son actuel
     son = sons[st.session_state.son_index]
     son_path = SONS_DIR + "/" + son
-    st.audio(son_path)
+    # st.audio(son_path)
 
     # Affiche les images
     st.write("Choisissez l'image correspondante :")
@@ -36,8 +36,8 @@ def mini_jeu():
 
     for col, image in zip(image_cols, images):
         img_path = IMAGES_DIR + "/" + image
-        img = Image.open(img_path)
-        col.image(img, caption=image, use_column_width=True)
+        # img = Image.open(img_path)
+        # col.image(img, caption=image, use_column_width=True)
 
     # Sélection de l'image associée
     choix_image = st.selectbox("Sélectionnez l'image associée :", images)
