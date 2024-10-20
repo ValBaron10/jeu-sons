@@ -1,11 +1,5 @@
 import streamlit as st
-import os
-import sys
-from pathlib import Path
 from PIL import Image
-
-dir = Path(__file__).resolve().parent
-sys.path.append(dir)
 
 # Dossier contenant les sons et les images
 SONS_DIR = "sons"
@@ -33,7 +27,7 @@ def mini_jeu():
 
     # Affiche le son actuel
     son = sons[st.session_state.son_index]
-    son_path = os.path.join(dir, SONS_DIR, son)
+    son_path = SONS_DIR + "/" + son
     st.audio(son_path)
 
     # Affiche les images
@@ -41,7 +35,7 @@ def mini_jeu():
     image_cols = st.columns(len(images))
 
     for col, image in zip(image_cols, images):
-        img_path = os.path.join(dir, IMAGES_DIR, image)
+        img_path = IMAGES_DIR + "/" + image
         img = Image.open(img_path)
         col.image(img, caption=image, use_column_width=True)
 
