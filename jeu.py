@@ -2,8 +2,8 @@ import streamlit as st
 from PIL import Image
 
 # Dossier contenant les sons et les images
-SONS_DIR = "sons"
-IMAGES_DIR = "images"
+SONS_DIR = "./sons"
+IMAGES_DIR = "./images"
 
 # Liste des sons et des images (avec .wav)
 sons = ["son1.wav", "son2.wav", "son3.wav"]
