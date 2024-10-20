@@ -1,7 +1,11 @@
 import streamlit as st
 import os
+import sys
 from pathlib import Path
 from PIL import Image
+
+dir = Path(__file__).resolve()
+sys.path.append(dir.parent.parent)
 
 # Dossier contenant les sons et les images
 SONS_DIR = "sons"
@@ -29,14 +33,14 @@ def mini_jeu():
 
     # Affiche le son actuel
     son = sons[st.session_state.son_index]
-    st.audio(os.path.join(Path(__file__).parents[0], os.path.join(SONS_DIR, son)))
+    st.audio(os.path.join(SONS_DIR, son))
 
     # Affiche les images
     st.write("Choisissez l'image correspondante :")
     image_cols = st.columns(len(images))
 
     for col, image in zip(image_cols, images):
-        img = Image.open(os.path.join(Path(__file__).parents[0], os.path.join(IMAGES_DIR, image)))
+        img = Image.open(os.path.join(IMAGES_DIR, image))
         col.image(img, caption=image, use_column_width=True)
 
     # Sélection de l'image associée
