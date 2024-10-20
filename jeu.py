@@ -28,7 +28,7 @@ def mini_jeu():
     # Affiche le son actuel
     son = sons[st.session_state.son_index]
     son_path = SONS_DIR + "/" + son
-    # st.audio(son_path)
+    st.audio("./sons/son1.wav")
 
     # Affiche les images
     st.write("Choisissez l'image correspondante :")
